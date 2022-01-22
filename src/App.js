@@ -9,10 +9,10 @@ function App() {
       <header>
       </header>
 
-      
-      <HashRouter basename="/">
+
+      <HashRouter>
         <Routes>
-          <Route path="/" exact component={() => <Home />} />
+          <Route path="/" element={<Home />}  />
         </Routes>
       </HashRouter>
     </div>
