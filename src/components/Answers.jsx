@@ -25,9 +25,13 @@ function Answers({parentToChild}) {
       console.log(preferred);
   }, [apiUrl]);
 
-  const kelvinToFarenheit = (k) => {
+  const kelvinToCelsius = (k) => {
     return (k - 273.15).toFixed(2);
   };
+
+  const kelvinToFahrenheit = (k) => {
+    return Number(((k - 273.15) * (9/5) + 32).toFixed(1));
+  } 
   
   return (
     <div class = "answer">
@@ -41,7 +45,7 @@ function Answers({parentToChild}) {
               />
 
               <p className="h2">
-                {kelvinToFarenheit(apiData.main.temp)}&deg; C
+                Current temp:       {kelvinToCelsius(apiData.main.temp)}&deg; C / {kelvinToFahrenheit(apiData.main.temp)}&deg; F 
               </p>
 
               <p className="h5">
@@ -54,13 +58,13 @@ function Answers({parentToChild}) {
                   <p>
                     <i class="fas fa-temperature-low "></i>{' '}
                     <strong>
-                      {kelvinToFarenheit(apiData.main.temp_min)}&deg; C
+                      Min temp:     {kelvinToCelsius(apiData.main.temp_min)}&deg; C / {kelvinToFahrenheit(apiData.main.temp_min)}&deg; F 
                     </strong>
                   </p>
                   <p>
                     <i className="fas fa-temperature-high"></i>{' '}
                     <strong>
-                      {kelvinToFarenheit(apiData.main.temp_max)}&deg; C
+                      Max temp:     {kelvinToCelsius(apiData.main.temp_max)}&deg; C / {kelvinToFahrenheit(apiData.main.temp_max)}&deg; F 
                     </strong>
                   </p>
                 </div>
@@ -81,10 +85,10 @@ function Answers({parentToChild}) {
               </div>
             </div>
           ) : (
-            <h1>Loading</h1>
+            <h1>Loading</h1> // if it fails to load a valid location 
           )}
         </div>
-          <br></br>
+          <br></br> 
         </div>
   );
 }

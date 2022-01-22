@@ -79,7 +79,7 @@ function Home() {
           <br></br>
         <Button variant="contained" onClick = {submitHandler} >Submit
         </Button>
-        {state2 ? displayAnswer() : 0}
+        {state2 ? displayAnswer() : false}
         </div>
         
     </div>
