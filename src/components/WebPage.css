@@ -8,10 +8,14 @@
   color: white;
   background-color: black;
   padding: 5px 10px 8px 10px;
-  margin-right: 200px;
-
-
+  margin-right: 50px;
 }
+
+.logo {
+    max-height: 60px;
+    margin-right: 50px;
+}
+
 .remove_link
 {
   text-decoration: none;

@@ -5,6 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import logo from '../cloud.png'
 
 
 
@@ -14,9 +15,16 @@ function NavBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" class="testClass">
         <Toolbar>
-
-          <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
             <nav>
+              <Link to="/">
+                <img src={logo} class="logo" />
+              </Link>
+            </nav>
+            <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                    <h3>Purdue Weather App</h3>
+                </Typography>
+          <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
+          <nav>
               <Link class="remove_link" to="/">Home</Link>
             </nav>
           </Typography>
