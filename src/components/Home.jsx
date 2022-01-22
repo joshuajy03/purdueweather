@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './WebPage.css';
 import SubmitButton from  './SubmitButton.jsx'
 import './WebPage.css';
+import { Link, withRouter } from "react-router-dom";
 
 
 function Home() {
@@ -22,8 +23,9 @@ function Home() {
           </div>
 
           <br></br>
-
-          <SubmitButton />
+        <nav>
+        <Link to="/Answers">  <SubmitButton /></Link>
+        </nav>
         </div>
     </div>
   );

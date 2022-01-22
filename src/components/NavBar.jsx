@@ -21,7 +21,7 @@ function NavBar() {
               </Link>
             </nav>
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                    <h3>Purdue Weather App</h3>
+                    <h2><em>Purdue Weather App</em></h2>
                 </Typography>
           <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
           <nav>
