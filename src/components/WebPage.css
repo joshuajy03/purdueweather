@@ -1,12 +1,12 @@
 .testClass
 {
-   background-color: #D9D7F1;
+   background-color: black;
 }
 .navbar_buttons
 {
   border-radius: 5px;
   color: white;
-  background-color: #92A9BD;
+  background-color: goldenrod;
   padding: 5px 10px 8px 10px;
   margin-right: 200px;
 
@@ -15,6 +15,7 @@
 .remove_link
 {
   text-decoration: none;
+  color: white;
 }
 
 .home {
