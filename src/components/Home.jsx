@@ -7,10 +7,9 @@ import countries from 'i18n-iso-countries';
 import background from "../bg.jpg";
 import sky from "../sky.jpeg";
 import Answers from "./Answers"
+import Button from '@mui/material/Button';
 
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
-
-
 
 function Home() {
   // State
@@ -29,7 +28,7 @@ function Home() {
       .then((res) => res.json())
       .then((data) => setApiData(data));
     
-    console.log(apiKey);
+    console.log(state2);
   }, [apiUrl]);
 
   const inputHandler = (event) => {
@@ -43,9 +42,8 @@ function Home() {
   };
 
   const displayAnswer = () => {
-    console.log(state2);
     return (
-      <Answers parentToChild={state}/>
+      <Answers parentToChild={state} />
     )
   }
 
@@ -79,9 +77,10 @@ function Home() {
           </div>
 
           <br></br>
-        <SubmitButton onClick = {submitHandler} />
+        <Button variant="contained" onClick = {submitHandler} >Submit
+        </Button>
         </div>
-        {state2 ? displayAnswer : false}
+        {state2 ? displayAnswer() : 0}
     </div>
   );
 }
