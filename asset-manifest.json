@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/purdueweather/static/css/main.d7fe9614.css",
+    "main.js": "/purdueweather/static/js/main.be6aea30.js",
+    "static/js/787.179c2a3e.chunk.js": "/purdueweather/static/js/787.179c2a3e.chunk.js",
+    "index.html": "/purdueweather/index.html",
+    "main.d7fe9614.css.map": "/purdueweather/static/css/main.d7fe9614.css.map",
+    "main.be6aea30.js.map": "/purdueweather/static/js/main.be6aea30.js.map",
+    "787.179c2a3e.chunk.js.map": "/purdueweather/static/js/787.179c2a3e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d7fe9614.css",
+    "static/js/main.be6aea30.js"
+  ]
+}
