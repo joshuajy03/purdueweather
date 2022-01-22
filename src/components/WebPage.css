@@ -37,8 +37,10 @@
 
 .message {
   padding: 10px;
-  background-color: black;
+  max-width: 50vw;
+  background-color: #d0ba92;
   border-radius: 10px; 
+  text-align: left;
 }
 
 .input {
