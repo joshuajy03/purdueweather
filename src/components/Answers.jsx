@@ -30,9 +30,8 @@ function Answers({parentToChild}) {
   };
   
   return (
-    <div className="home">
-        
-        <div className="card mt-3 mx-auto" style={{ width: '60vw' }}>
+    <div class = "answer">
+        <div>
           {apiData.main ? (
             <div class="card-body text-center">
               <img
@@ -86,8 +85,6 @@ function Answers({parentToChild}) {
           )}
         </div>
           <br></br>
-
-          <SubmitButton />
         </div>
   );
 }
