@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
 import './App.css';
-
+import {Link} from 'react-router-dom';
 import countries from 'i18n-iso-countries';
 
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
@@ -20,6 +21,8 @@ function App() {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setApiData(data));
+    
+    console.log(apiKey);
   }, [apiUrl]);
 
   const inputHandler = (event) => {
@@ -55,9 +58,13 @@ function App() {
               value={getState}
             />
           </div>
-          <button className="btn btn-primary mt-2" onClick={submitHandler}>
+          
+          <Button className="btn btn-primary mt-2" onClick={submitHandler}>
+          
             Search
-          </button>
+         
+          </Button>
+          
         </div>
 
         <div className="card mt-3 mx-auto" style={{ width: '60vw' }}>
