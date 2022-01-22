@@ -64,14 +64,15 @@ function Home() {
           <br></br>
 
           <div class = "input temperature">
-            <input type = "text" id = "userInput" placeholder = "Enter preferred temperature">
-
+            <input type = "text" id = "userInput" onChange = {inputHandler} placeholder = "Enter preferred temperature">
             </input>
           </div>
 
           <br></br>
         <nav>
-        <Link to="/Answers">  <SubmitButton /></Link>
+        <Link to = "/Answers">
+        <SubmitButton onClick = {submitHandler} />
+        </Link>
         </nav>
         </div>
     </div>
