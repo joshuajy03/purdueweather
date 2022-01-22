@@ -39,7 +39,6 @@ function Answers({parentToChild}) {
     if (preferred > 21)
     {
       setLayers(0);
-
     }
     else if(preferred>=15 && preferred<21)
     {
@@ -87,7 +86,22 @@ function Answers({parentToChild}) {
        setLayers(layers-3);
     }
 
+    const keyClothes = new Map();
+    keyClothes.set(0, "T-shirts and shorts would be a good choice!");
+    keyClothes.set(1, "Tops: T-shirt and a hoodie \n Bottoms: sweatpants");
+    keyClothes.set(2, "Tops: Thermals, T-shirt and a hoodie \n Bottoms: Thermals and sweatpants");
+    keyClothes.set(3, "Tops: Thermals, T-shirt, and a winter jacket \n Bottoms: Thermals and sweatpants");
+    keyClothes.set(4, "Tops: Thermals, T-shirt, hoodie and a winter jacket \n Bottoms: Thermals and sweatpants");
+    keyClothes.set(5, "Tops: Thermals, T-shirt, hoodie, medium coat and a winter jacket \n Bottoms: Thermals and sweatpants");
+    
+    if (layers < 0) {
+      return keyClothes[0];
+    } else if (layers > 5) {
+      return keyClothes[5];
+    } else {
+      return keyClothes[layers];
     }
+  }
 
 
   return (
