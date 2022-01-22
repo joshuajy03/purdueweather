@@ -22,7 +22,7 @@ function Answers({parentToChild}) {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setApiData(data));
-      console.log(preferred);
+    
   }, [apiUrl]);
 
   const kelvinToCelsius = (k) => {
@@ -32,6 +32,16 @@ function Answers({parentToChild}) {
   const kelvinToFahrenheit = (k) => {
     return Number(((k - 273.15) * (9/5) + 32).toFixed(1));
   } 
+
+  const calculateLayers = (k) => {
+    var layers = 0; 
+    
+    if (preferred > 21) {
+
+    } else if {
+      
+    }
+  }
   
   return (
     <div class = "answer">
