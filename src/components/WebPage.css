@@ -1,12 +1,12 @@
 .testClass
 {
-   background-color: black;
+   background-color: #d0ba92;
 }
 .navbar_buttons
 {
   border-radius: 5px;
   color: white;
-  background-color: #d0ba92;
+  background-color: black;
   padding: 5px 10px 8px 10px;
   margin-right: 200px;
 
@@ -15,23 +15,23 @@
 .remove_link
 {
   text-decoration: none;
-  color: white;
+  color: #d0ba92;
 }
 
 .home {
-  background-color: #d0ba92;
+  background-color: black;
   min-height: 90vh
 }
 
 .container {
   margin: auto; 
-  background-color: black;
+  background-color: #d0ba92;
   border-radius:10px;
   min-width: 45vw;
   max-width: 90vw;
   margin-top: 40px;
 
-  color: white;
+  color: black;
   min-height: 70vh
 }
 
