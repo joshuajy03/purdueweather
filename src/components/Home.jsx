@@ -3,11 +3,43 @@ import './WebPage.css';
 import SubmitButton from  './SubmitButton.jsx'
 import './WebPage.css';
 import { Link, withRouter } from "react-router-dom";
+import countries from 'i18n-iso-countries';
 import background from "../bg.jpg";
 import sky from "../sky.jpeg";
 
+countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
 function Home() {
+  // State
+  const [apiData, setApiData] = useState({});
+  const [getState, setGetState] = useState('tamilnadu');
+  const [state, setState] = useState('tamilnadu');
+
+  // API KEY AND URL
+  const apiKey = "2ae90fde95960e4e1763930f619255f2";
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}`;
+
+  // Side effect
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => setApiData(data));
+    
+    console.log(apiKey);
+  }, [apiUrl]);
+
+  const inputHandler = (event) => {
+    setGetState(event.target.value);
+  };
+
+  const submitHandler = () => {
+    setState(getState);
+  };
+
+  const kelvinToFarenheit = (k) => {
+    return (k - 273.15).toFixed(2);
+  };
+
   return (
     <div className="home">
         <div class = "container pt-3 pb-3 my-3"style={{ backgroundImage: `url(${sky})` }} align = "center">

@@ -7,26 +7,64 @@ import './WebPage.css';
 function Answers() {
   return (
     <div className="home">
-        <div class = "container pt-3 pb-3 my-3" align = "center">
-          <div class = "message welcome">
-            <label>
-            Okay
+        
+        <div className="card mt-3 mx-auto" style={{ width: '60vw' }}>
+          {apiData.main ? (
+            <div class="card-body text-center">
+              <img
+                src={`http://openweathermap.org/img/w/${apiData.weather[0].icon}.png`}
+                alt="weather status icon"
+                className="weather-icon"
+              />
 
-            </label>
-          </div>
+              <p className="h2">
+                {kelvinToFarenheit(apiData.main.temp)}&deg; C
+              </p>
 
-          <br></br>
+              <p className="h5">
+                <i className="fas fa-map-marker-alt"></i>{' '}
+                <strong>{apiData.name}</strong>
+              </p>
 
-          <div class = "input temperature">
-            <input type = "text" id = "comft_temp" placeholder = "Enter prefered temperature">
-            </input>
-          </div>
-
+              <div className="row mt-4">
+                <div className="col-md-6">
+                  <p>
+                    <i class="fas fa-temperature-low "></i>{' '}
+                    <strong>
+                      {kelvinToFarenheit(apiData.main.temp_min)}&deg; C
+                    </strong>
+                  </p>
+                  <p>
+                    <i className="fas fa-temperature-high"></i>{' '}
+                    <strong>
+                      {kelvinToFarenheit(apiData.main.temp_max)}&deg; C
+                    </strong>
+                  </p>
+                </div>
+                <div className="col-md-6">
+                  <p>
+                    {' '}
+                    <strong>{apiData.weather[0].main}</strong>
+                  </p>
+		  <p>
+                    <strong>
+                      {' '}
+                      {countries.getName(apiData.sys.country, 'en', {
+                        select: 'official',
+                      })}
+                    </strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
           <br></br>
 
           <SubmitButton />
         </div>
-    </div>
   );
 }
 
