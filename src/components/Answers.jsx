@@ -2,9 +2,33 @@ import React, { useState, useEffect } from "react";
 import './WebPage.css';
 import SubmitButton from  './SubmitButton.jsx'
 import './WebPage.css';
+import countries from 'i18n-iso-countries';
+countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
 
-function Answers() {
+function Answers({parentToChild}) {
+  const [apiData, setApiData] = useState({});
+  const [getState, setGetState] = useState('west lafayette');
+  const [state, setState] = useState('west lafayette');
+
+  const [preferred, setPreferred] = useState(parentToChild);
+
+  // API KEY AND URL
+  const apiKey = "2ae90fde95960e4e1763930f619255f2";
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}`;
+
+  // Side effect
+  useEffect(() => {
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => setApiData(data));
+      console.log(preferred);
+  }, [apiUrl]);
+
+  const kelvinToFarenheit = (k) => {
+    return (k - 273.15).toFixed(2);
+  };
+  
   return (
     <div className="home">
         

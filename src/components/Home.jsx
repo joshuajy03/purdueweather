@@ -6,14 +6,18 @@ import { Link, withRouter } from "react-router-dom";
 import countries from 'i18n-iso-countries';
 import background from "../bg.jpg";
 import sky from "../sky.jpeg";
+import Answers from "./Answers"
 
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
+
+
 
 function Home() {
   // State
   const [apiData, setApiData] = useState({});
-  const [getState, setGetState] = useState('tamilnadu');
-  const [state, setState] = useState('tamilnadu');
+  const [getState, setGetState] = useState('');
+  const [state, setState] = useState(0);
+  const [state2, setState2] = useState(false);
 
   // API KEY AND URL
   const apiKey = "2ae90fde95960e4e1763930f619255f2";
@@ -34,11 +38,17 @@ function Home() {
 
   const submitHandler = () => {
     setState(getState);
+    setState2(true);
+    console.log(state2);
   };
 
-  const kelvinToFarenheit = (k) => {
-    return (k - 273.15).toFixed(2);
-  };
+  const displayAnswer = () => {
+    console.log(state2);
+    return (
+      <Answers parentToChild={state}/>
+    )
+  }
+
 
   return (
     <div className="home">
@@ -69,12 +79,9 @@ function Home() {
           </div>
 
           <br></br>
-        <nav>
-        <Link to = "/Answers">
         <SubmitButton onClick = {submitHandler} />
-        </Link>
-        </nav>
         </div>
+        {state2 ? displayAnswer : false}
     </div>
   );
 }
