@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './WebPage.css';
+import Button from '@mui/material/Button';
 
 
 function Home() {
@@ -12,9 +13,9 @@ function Home() {
         <input type = "text" id = "comft_temp" placeholder = "Enter prefered temperature">  
         </input>
         <br></br>
-        <button>
+        <Button variant="contained">
           Submit
-        </button> 
+        </Button> 
     </div>
   );
 }
