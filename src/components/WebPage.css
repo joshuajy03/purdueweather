@@ -41,11 +41,26 @@
 
 .message {
   padding: 10px;
-  max-width: 50vw;
+
   background-color: #d0ba92;
   border-radius: 10px;
-  text-align: left;
+  text-align: center;
   font-family: 'Mochiy Pop P One', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 34px;
+  color: #370665;
+
+}
+.message2{
+  padding: 10px;
+  max-width: 50vw;
+  /*background-color: #d0ba92;*/
+  background-color: #CA965C;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  color: #370665;;
 }
 
 input[type='text'] {
@@ -55,4 +70,10 @@ input[type='text'] {
   display: inline-block;
   border-radius: 4px;
   box-sizing: border-box;
+}
+.first_label
+{
+  font-weight: bold;
+  text-align: left;
+
 }

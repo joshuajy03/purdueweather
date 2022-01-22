@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes, Link} from "react-router-dom";
 import { HashRouter} from "react-router-dom";
-import { Home, NavBar } from "./components";
+import { Home, NavBar, Answers } from "./components";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <NavBar />
         <Routes>
           <Route path="/" element={<Home />}  />
+          <Route path="/Answers" element={<Answers />} />
         </Routes>
       </HashRouter>
     </div>
