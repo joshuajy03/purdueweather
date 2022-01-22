@@ -31,6 +31,9 @@ function App() {
 
   const submitHandler = () => {
     setState(getState);
+    if (state === "tamilnadu") {
+      console.log("hello world.");
+    }
   };
 
   const kelvinToFarenheit = (k) => {
