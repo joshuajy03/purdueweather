@@ -17,7 +17,7 @@ function Home() {
           <br></br>
 
           <div class = "input temperature">
-            <input type = "text" id = "comft_temp" placeholder = "Enter prefered temperature">
+            <input type = "text" id = "userInput" placeholder = "Enter prefered temperature">
             </input>
           </div>
 

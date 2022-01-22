@@ -3,7 +3,13 @@ import Button from '@mui/material/Button';
 
 class SubmitButton extends Component {
   grabApiData = () => {
-    console.log('Click happened');
+    var input = document.getElementById("userInput").value;
+    if (isNaN(input)) {
+      alert("Invalid input, please input a number.");
+    } else {
+      console.log(input);
+    }
+    
   }
   
   render() {
