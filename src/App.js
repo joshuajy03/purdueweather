@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <header>
       </header>
+      <NavBar />
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />}  />

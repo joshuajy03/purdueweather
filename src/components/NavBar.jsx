@@ -1,64 +1,27 @@
 import React from 'react'
-import { Toolbar, Typography, AppBar } from '@material-ui/core'
 import { Link, withRouter } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import AppBar from '@mui/material/AppBar';
 
-const styles = makeStyles({
-    bar: {
-        paddingTop: "0rem",
-        backgroundColor: "#fffff",
-    },
-    logo: {
-        width: "75px",
-    },
-    menuItem: {
-        cursor: "pointer",
-        marginRight: 24,
-        "&:hover": {
-            color: "#CFD2B2"
-        },
-    },
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
-    space: {
-        flexGrow: 1,
-        color: "#000000",
-        justifyContent: 'center',
-    },
-})
 
 
 function NavBar() {
-    const classes = styles()
-
-    return (
-        <AppBar position="sticky">
-            <Toolbar color="rgba(75, 59, 71, 0.87)" className={classes.bar}>
-                <Typography variant="h6" className={classes.space}>
-                    <h3>Purdue Bikes In Trees</h3>
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
-                    <Link style={{color : "#000000"}}  to="/">
-                        Home
-                    </Link>
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
-                    <Link style={{ textDecoration: 'none' }, {color : "#000000"}}  to="/post">
-                        Post
-                    </Link>
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
-                    <Link style={{ textDecoration: 'none' }, {color : "#000000"}}  to="/map">
-                        Map
-                    </Link>
-                </Typography>
-                <Typography variant="h6" className={classes.menuItem}>
-                    <Link style={{ textDecoration: 'none' }, {color : "#000000"}}  to="/about">
-                        About
-                    </Link>
-                </Typography>
-            </Toolbar>
-        </AppBar>
-    )
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Home
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  )
 }
 
 export default NavBar
