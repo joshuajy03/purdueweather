@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
 import './App.css';
-import {Link} from 'react-router-dom';
+
 import countries from 'i18n-iso-countries';
 
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
@@ -9,11 +8,11 @@ countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 function App() {
   // State
   const [apiData, setApiData] = useState({});
-  const [getState, setGetState] = useState('tamilnadu');
-  const [state, setState] = useState('tamilnadu');
+  const [getState, setGetState] = useState('West lafayette');
+  const [state, setState] = useState('West lafayette');
 
   // API KEY AND URL
-  const apiKey = "2ae90fde95960e4e1763930f619255f2";
+  const apiKey = process.env.REACT_APP_API_KEY;
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}`;
 
   // Side effect
@@ -21,8 +20,6 @@ function App() {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setApiData(data));
-    
-    console.log(apiKey);
   }, [apiUrl]);
 
   const inputHandler = (event) => {
@@ -31,9 +28,6 @@ function App() {
 
   const submitHandler = () => {
     setState(getState);
-    if (state === "tamilnadu") {
-      console.log("hello world.");
-    }
   };
 
   const kelvinToFarenheit = (k) => {
@@ -43,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <header className="d-flex justify-content-center align-items-center">
-        <h2>React Weather App</h2>
+        <h2>Weather App</h2>
       </header>
       <div className="container">
         <div className="mt-3 d-flex flex-column justify-content-center align-items-center">
@@ -61,11 +55,9 @@ function App() {
               value={getState}
             />
           </div>
-          
-          <Button className="btn btn-primary mt-2" onClick={submitHandler}>
-        
-          </Button>
-          
+          <button className="btn btn-primary mt-2" onClick={submitHandler}>
+            Search
+          </button>
         </div>
 
         <div className="card mt-3 mx-auto" style={{ width: '60vw' }}>
@@ -78,6 +70,9 @@ function App() {
               />
 
               <p className="h2">
+                <label>
+                  Current temperature: 
+                </label>
                 {kelvinToFarenheit(apiData.main.temp)}&deg; C
               </p>
 
@@ -91,12 +86,18 @@ function App() {
                   <p>
                     <i class="fas fa-temperature-low "></i>{' '}
                     <strong>
+                    <label>
+                      Min: 
+                    </label>
                       {kelvinToFarenheit(apiData.main.temp_min)}&deg; C
                     </strong>
                   </p>
                   <p>
                     <i className="fas fa-temperature-high"></i>{' '}
                     <strong>
+                      <label>
+                       Max: 
+                      </label>
                       {kelvinToFarenheit(apiData.main.temp_max)}&deg; C
                     </strong>
                   </p>
@@ -106,7 +107,7 @@ function App() {
                     {' '}
                     <strong>{apiData.weather[0].main}</strong>
                   </p>
-		  <p>
+		              <p>
                     <strong>
                       {' '}
                       {countries.getName(apiData.sys.country, 'en', {
