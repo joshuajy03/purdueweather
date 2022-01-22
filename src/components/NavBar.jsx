@@ -14,24 +14,19 @@ function NavBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" class="testClass">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
             Home
           </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
             What we do
           </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
             Contact Us
           </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Contact Us
+          <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
+            Our Services
           </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Contact Us
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Contact Us
-          </Typography>
+
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

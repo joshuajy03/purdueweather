@@ -2,3 +2,12 @@
 {
    background-color: #D9D7F1;
 }
+.navbar_buttons
+{
+  border-radius: 5px;
+        color: white;
+        background-color: #92A9BD;
+        padding: 5px 10px 8px 10px;
+        margin-right: 100px;
+
+}
