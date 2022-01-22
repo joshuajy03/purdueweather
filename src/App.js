@@ -13,7 +13,7 @@ function App() {
   const [state, setState] = useState('tamilnadu');
 
   // API KEY AND URL
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = "2ae90fde95960e4e1763930f619255f2";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}`;
 
   // Side effect
@@ -60,9 +60,7 @@ function App() {
           </div>
           
           <Button className="btn btn-primary mt-2" onClick={submitHandler}>
-          
-            Search
-         
+        
           </Button>
           
         </div>
