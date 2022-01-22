@@ -5,7 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+
 
 
 
@@ -30,9 +30,6 @@ function NavBar() {
               <Link class="remove_link" to="/">Contact Us</Link>
             </nav>
           </Typography>
-
-          
-
         </Toolbar>
       </AppBar>
     </Box>

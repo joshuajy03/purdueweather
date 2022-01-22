@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '@mui/material/Button';
 
 class SubmitButton extends Component {
   grabApiData = () => {
@@ -7,9 +8,9 @@ class SubmitButton extends Component {
   
   render() {
     return(
-      <button onClick = {this.grabApiData}>
+      <Button variant="contained" onClick = {this.grabApiData}>
         Submit
-      </button>
+      </Button>
     )
   }
 }
