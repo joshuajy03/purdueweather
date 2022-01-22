@@ -15,22 +15,19 @@ function NavBar() {
       <AppBar position="static" class="testClass">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Home
+            <nav>
+              <Link to="/">Home</Link>
+            </nav>
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            What we do
+          <nav>
+              <Link to="/">What We Do</Link>
+            </nav>
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Contact Us
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Contact Us
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Contact Us
-          </Typography>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Contact Us
+            <nav>
+              <Link to="/">Contact Us</Link>
+            </nav>
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes} from "react-router-dom";
+import { Route, Routes, Link} from "react-router-dom";
 import { HashRouter} from "react-router-dom";
 import { Home, NavBar } from "./components";
 
@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <header>
       </header>
-      <NavBar />
       <HashRouter>
+      <NavBar />
         <Routes>
           <Route path="/" element={<Home />}  />
         </Routes>
