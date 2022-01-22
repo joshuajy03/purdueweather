@@ -24,7 +24,7 @@
 }
 
 .container {
-  margin: auto; 
+  margin: auto;
   background-color: #d0ba92;
   border-radius:10px;
   min-width: 45vw;
@@ -39,8 +39,9 @@
   padding: 10px;
   max-width: 50vw;
   background-color: #d0ba92;
-  border-radius: 10px; 
+  border-radius: 10px;
   text-align: left;
+  font-family: 'Mochiy Pop P One', sans-serif;
 }
 
 .input {
