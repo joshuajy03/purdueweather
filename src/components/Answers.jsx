@@ -22,7 +22,7 @@ function Answers({parentToChild}) {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setApiData(data));
-    
+
   }, [apiUrl]);
 
   const kelvinToCelsius = (k) => {
@@ -31,18 +31,65 @@ function Answers({parentToChild}) {
 
   const kelvinToFahrenheit = (k) => {
     return Number(((k - 273.15) * (9/5) + 32).toFixed(1));
-  } 
-
-  const calculateLayers = (k) => {
-    var layers = 0; 
-    
-    if (preferred > 21) {
-
-    } else if {
-      
-    }
   }
-  
+
+  const calculateLayers = (actualTemp) => {
+    const [layers, setLayers] = setState(0);
+
+    if (preferred > 21)
+    {
+      setLayers(0);
+
+    }
+    else if(preferred>=15 && preferred<21)
+    {
+      setLayers(1);
+    }
+    else if(preferred>=9 && preferred<15)
+    {
+      setLayers(2);
+    }
+    else if(preferred>=3 && preferred<9)
+    {
+      setLayers(3);
+    }
+    else if(preferred>=-5 && preferred<3)
+    {
+      setLayers(4);
+    }
+    else {
+      setLayers(5);
+    }
+    var temperatureDifference = actualTemp-preferred;
+
+
+    if(temperatureDifference<=10 && temperatureDifference>5)
+    {
+       setLayers(layers+1);
+    }
+    else if(temperatureDifference<=15 && temperatureDifference>10)
+    {
+       setLayers(layers+2);
+    }
+    else if(temperatureDifference>15)
+    {
+       setLayers(layers+3);
+    }
+    else if(temperatureDifference>=-10 && temperatureDifference<-5)
+    {
+        setLayers(layers-1);
+    }
+    else if(temperatureDifference>=-15 && temperatureDifference<-10)
+    {
+       setLayers(layers-2);
+    }
+    else {
+       setLayers(layers-3);
+    }
+
+    }
+
+
   return (
     <div class = "answer">
         <div>
@@ -55,7 +102,7 @@ function Answers({parentToChild}) {
               />
 
               <p className="h2">
-                Current temp:       {kelvinToCelsius(apiData.main.temp)}&deg; C / {kelvinToFahrenheit(apiData.main.temp)}&deg; F 
+                Current temp:       {kelvinToCelsius(apiData.main.temp)}&deg; C / {kelvinToFahrenheit(apiData.main.temp)}&deg; F
               </p>
 
               <p className="h5">
@@ -68,13 +115,13 @@ function Answers({parentToChild}) {
                   <p>
                     <i class="fas fa-temperature-low "></i>{' '}
                     <strong>
-                      Min temp:     {kelvinToCelsius(apiData.main.temp_min)}&deg; C / {kelvinToFahrenheit(apiData.main.temp_min)}&deg; F 
+                      Min temp:     {kelvinToCelsius(apiData.main.temp_min)}&deg; C / {kelvinToFahrenheit(apiData.main.temp_min)}&deg; F
                     </strong>
                   </p>
                   <p>
                     <i className="fas fa-temperature-high"></i>{' '}
                     <strong>
-                      Max temp:     {kelvinToCelsius(apiData.main.temp_max)}&deg; C / {kelvinToFahrenheit(apiData.main.temp_max)}&deg; F 
+                      Max temp:     {kelvinToCelsius(apiData.main.temp_max)}&deg; C / {kelvinToFahrenheit(apiData.main.temp_max)}&deg; F
                     </strong>
                   </p>
                 </div>
@@ -95,10 +142,10 @@ function Answers({parentToChild}) {
               </div>
             </div>
           ) : (
-            <h1>Loading</h1> // if it fails to load a valid location 
+            <h1>Loading</h1> // if it fails to load a valid location
           )}
         </div>
-          <br></br> 
+          <br></br>
         </div>
   );
 }
