@@ -6,6 +6,7 @@ function Home() {
   return (
     <div className="home">
         <h1> hello</h1>
+        <h2> also displaying</h2>
     </div>
   );
 }
