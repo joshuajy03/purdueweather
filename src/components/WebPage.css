@@ -16,3 +16,11 @@
 {
   text-decoration: none;
 }
+
+.container {
+  margin: auto; 
+  background-color: red;
+  border-radius:10px;
+  min-width: 45vw;
+  max-width: 90vw;
+}
