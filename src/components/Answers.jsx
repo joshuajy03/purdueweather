@@ -10,8 +10,7 @@ function Answers({parentToChild}) {
   const [apiData, setApiData] = useState({});
   const [getState, setGetState] = useState('west lafayette');
   const [state, setState] = useState('west lafayette');
-
-  const [preferred, setPreferred] = useState(parentToChild);
+  const preferred = parentToChild;
 
   // API KEY AND URL
   const apiKey = "2ae90fde95960e4e1763930f619255f2";
@@ -22,68 +21,69 @@ function Answers({parentToChild}) {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setApiData(data));
-
+      console.log(preferred)
   }, [apiUrl]);
 
   const kelvinToCelsius = (k) => {
+    
     return (k - 273.15).toFixed(2);
   };
 
   const kelvinToFahrenheit = (k) => {
+    console.log();
     return Number(((k - 273.15) * (9/5) + 32).toFixed(1));
   }
 
   const calculateLayers = (actualTemp) => {
-    const [layers, setLayers] = setState(0);
-
+    var layers = 0;
     if (preferred > 21)
     {
-      setLayers(0);
+      layers = 0;
     }
     else if(preferred>=15 && preferred<21)
     {
-      setLayers(1);
+      layers = 1;
     }
     else if(preferred>=9 && preferred<15)
     {
-      setLayers(2);
+      layers = 2;
     }
     else if(preferred>=3 && preferred<9)
     {
-      setLayers(3);
+      layers = 3;
     }
     else if(preferred>=-5 && preferred<3)
     {
-      setLayers(4);
+      layers = 4;
     }
     else {
-      setLayers(5);
+      layers = 5;
     }
     var temperatureDifference = actualTemp-preferred;
 
 
     if(temperatureDifference<=10 && temperatureDifference>5)
     {
-       setLayers(layers+1);
+       layers = layers + 1;
     }
     else if(temperatureDifference<=15 && temperatureDifference>10)
     {
-       setLayers(layers+2);
+       layers = layers +2;
     }
     else if(temperatureDifference>15)
     {
-       setLayers(layers+3);
+       layers = layers + 3;
     }
     else if(temperatureDifference>=-10 && temperatureDifference<-5)
     {
-        setLayers(layers-1);
+        layers = layers -1;
     }
     else if(temperatureDifference>=-15 && temperatureDifference<-10)
     {
-       setLayers(layers-2);
+       layers = layers -2;
     }
     else {
-       setLayers(layers-3);
+       layers = layers -3;
     }
 
     const keyClothes = new Map();
@@ -95,11 +95,11 @@ function Answers({parentToChild}) {
     keyClothes.set(5, "Tops: Thermals, T-shirt, hoodie, medium coat and a winter jacket \n Bottoms: Thermals and sweatpants");
     
     if (layers < 0) {
-      return keyClothes[0];
+      return keyClothes.get(0);
     } else if (layers > 5) {
-      return keyClothes[5];
+      return keyClothes.get(5);
     } else {
-      return keyClothes[layers];
+      return keyClothes.get(layers);
     }
   }
 
@@ -108,12 +108,17 @@ function Answers({parentToChild}) {
     <div class = "answer">
         <div>
           {apiData.main ? (
+            
             <div class="card-body text-center">
+              <p>
+            {calculateLayers(kelvinToCelsius(apiData.main.temp))} 
+           </p>
               <img
                 src={`http://openweathermap.org/img/w/${apiData.weather[0].icon}.png`}
                 alt="weather status icon"
                 className="weather-icon"
-              />
+              /><p>
+            </p>
 
               <p className="h2">
                 Current temp:       {kelvinToCelsius(apiData.main.temp)}&deg; C / {kelvinToFahrenheit(apiData.main.temp)}&deg; F

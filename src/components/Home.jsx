@@ -13,37 +13,24 @@ countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
 function Home() {
   // State
-  const [apiData, setApiData] = useState({});
   const [getState, setGetState] = useState('');
   const [state, setState] = useState(0);
   const [state2, setState2] = useState(false);
-
-  // API KEY AND URL
-  const apiKey = "2ae90fde95960e4e1763930f619255f2";
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${state}&appid=${apiKey}`;
-
-  // Side effect
-  useEffect(() => {
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => setApiData(data));
-    
-    console.log(state2);
-  }, [apiUrl]);
 
   const inputHandler = (event) => {
     setGetState(event.target.value);
   };
 
-  const submitHandler = () => {
-    setState(getState);
-    setState2(true);
-    console.log(state2);
-  };
 
   const displayAnswer = () => {
     return (
       <Answers parentToChild={state} />
+    )
+  }
+
+  const displayNothing = () => {
+    return (
+      <br />
     )
   }
 
@@ -72,14 +59,14 @@ function Home() {
           <br></br>
 
           <div class = "input temperature">
-            <input type = "text" id = "userInput" onChange = {inputHandler} placeholder = "Enter preferred temperature">
+            <input type = "number" id = "userInput" onChange={inputHandler} placeholder = "Enter preferred temperature">
             </input>
           </div>
 
           <br></br>
-        <Button variant="contained" onClick = {submitHandler} >Submit
+        <Button variant="contained" onClick = {() => { setState(getState); setState2(true);}} >Submit
         </Button>
-        {state2 ? displayAnswer() : false}
+        {state2 ? displayAnswer() : displayNothing()}
         </div>
         
     </div>
