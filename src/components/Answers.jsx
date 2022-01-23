@@ -37,7 +37,7 @@ function writeUserData(userId, rating, degree, actual, preferred) {
     var celsius = preferred;
     if (!degree) { // if the user selects fahrenheit 
         celsius = (preferred - 32) * (5/9); 
-        celsius = celsius.toFixed(1)
+        celsius = parseFloat(celsius.toFixed(1));
     } 
 
     set(ref(database, 'users/' + userId), {
@@ -219,7 +219,7 @@ function Answers({parentToChild, degree, city}) {
                     value={4}
                     onChange={(event, newValue) => {
                         console.log(newValue);
-                        writeUserData(Math.floor(Math.random() * 10000000000), newValue, degree, parseFloat(kelvinToCelsius(apiData.main.temp)), preferred);
+                        writeUserData(Math.floor(Math.random() * 10000000000), newValue, degree, parseFloat(kelvinToCelsius(apiData.main.temp)), parseFloat(preferred));
                     }}
                     />
                 </div>
