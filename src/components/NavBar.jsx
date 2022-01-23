@@ -35,7 +35,9 @@ function NavBar() {
           </Typography>
           <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
             <nav>
-              <Link class="remove_link" to="/">Contact Us</Link>
+            <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="remove_link">
+              Contact Us
+              </a>
             </nav>
           </Typography>
         </Toolbar>
