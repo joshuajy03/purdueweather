@@ -33,7 +33,7 @@ const database = getDatabase(app);
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
 
-function writeUserData(userId, rating, degree, actual, preferred) {
+function writeUserData(userId, rating, degree, actual, preferred, layers) {
     var celsius = preferred;
     if (!degree) { // if the user selects fahrenheit 
         celsius = (preferred - 32) * (5/9); 
@@ -44,6 +44,7 @@ function writeUserData(userId, rating, degree, actual, preferred) {
         rating: rating,
         preferred: celsius,
         actual: actual,
+        layers: layers
     });
 }
 
@@ -52,6 +53,8 @@ function Answers({parentToChild, degree, city}) {
   const state = city;
   const preferred = parentToChild;
   const celcius = degree;
+
+  const [rating, setRating] = useState(0);
 
   // API KEY AND URL
   const apiKey = "2ae90fde95960e4e1763930f619255f2";
@@ -75,9 +78,9 @@ function Answers({parentToChild, degree, city}) {
     console.log();
     return Number(((k - 273.15) * (9/5) + 32).toFixed(1));
   }
-
+  var layers = 0;
   const calculateLayers = (actualTemp) => {
-    var layers = 0;
+    
     var preferredTemp = degree ? preferred : preferred * (9/5) + 32; // converts preferred to required unit 
     console.log(actualTemp);
 
@@ -216,10 +219,11 @@ function Answers({parentToChild, degree, city}) {
                     </Typography>
                     <Rating
                     name="simple-controlled"
-                    value={4}
+                    value={rating}
                     onChange={(event, newValue) => {
                         console.log(newValue);
-                        writeUserData(Math.floor(Math.random() * 10000000000), newValue, degree, parseFloat(kelvinToCelsius(apiData.main.temp)), parseFloat(preferred));
+                        setRating(newValue);
+                        writeUserData(Math.floor(Math.random() * 10000000000), newValue, degree, parseFloat(kelvinToCelsius(apiData.main.temp)), parseFloat(preferred), layers);
                     }}
                     />
                 </div>

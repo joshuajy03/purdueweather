@@ -20,8 +20,8 @@ function NavBar() {
                 <img src={logo} class="logo" />
               </Link>
             </nav>
-            <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                    <h2><em>Purdue Weather App</em></h2>
+            <Typography variant="h2" class="h2" sx={{ flexGrow: 1 }}>
+                    Purdue Weather App
                 </Typography>
           <Typography variant="h6" class="navbar_buttons" component="div" sx={{ flexGrow: 1 }}>
           <nav>

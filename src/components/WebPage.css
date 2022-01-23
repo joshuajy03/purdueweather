@@ -52,6 +52,12 @@
   color: #370665;
 
 }
+
+.h2 {
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-weight: bold;
+  flex-grow: 1;
+}
 .message2{
   padding: 10px;
   max-width: 50vw;
