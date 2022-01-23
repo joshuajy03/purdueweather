@@ -3,8 +3,49 @@ import './WebPage.css';
 import SubmitButton from  './SubmitButton.jsx'
 import './WebPage.css';
 import countries from 'i18n-iso-countries';
+import Rating from '@mui/material/Rating';
+//import database from './firebase'
+import Typography from '@mui/material/Typography';
+
+import { getDatabase ,ref, set } from "firebase/database";
+import { initializeApp } from 'firebase/app';
+
+// Set the configuration for your app
+// TODO: Replace with your project's config object
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyBy5yBpJ1Hdnb73RkXVk7FTvshE3o0HJtU",
+    authDomain: "boilermake-2022.firebaseapp.com",
+    databaseURL: "https://boilermake-2022-default-rtdb.firebaseio.com",
+    projectId: "boilermake-2022",
+    storageBucket: "boilermake-2022.appspot.com",
+    messagingSenderId: "1084247017981",
+    appId: "1:1084247017981:web:123f34067f30db60d9f194",
+    measurementId: "G-HX1QZDXXML"
+  };
+
+const app = initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+const database = getDatabase(app);
+
+
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
+
+function writeUserData(userId, rating, degree, actual, preferred) {
+    var celsius = preferred;
+    if (!degree) { // if the user selects fahrenheit 
+        celsius = (preferred - 32) * (5/9); 
+        celsius = celsius.toFixed(1)
+    } 
+
+    set(ref(database, 'users/' + userId), {
+        rating: rating,
+        preferred: celsius,
+        actual: actual,
+    });
+}
 
 function Answers({parentToChild, degree, city}) {
   const [apiData, setApiData] = useState({});
@@ -170,6 +211,17 @@ function Answers({parentToChild, degree, city}) {
                       })}
                     </strong>
                   </p>
+                  <Typography>
+                    How was its prediction? Rate us!
+                    </Typography>
+                    <Rating
+                    name="simple-controlled"
+                    value={4}
+                    onChange={(event, newValue) => {
+                        console.log(newValue);
+                        writeUserData(Math.floor(Math.random() * 10000000000), newValue, degree, parseFloat(kelvinToCelsius(apiData.main.temp)), preferred);
+                    }}
+                    />
                 </div>
               </div>
             </div>

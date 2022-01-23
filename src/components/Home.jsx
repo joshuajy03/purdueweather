@@ -27,6 +27,10 @@ function Home() {
   const [state2, setState2] = useState(false);
   const [degree, setDegree] = useState(true);
 
+  const [rating, setRating] = useState(0);
+
+  
+
   const inputHandler = (event) => {
     setGetState(event.target.value);
   };
@@ -109,14 +113,13 @@ function Home() {
             label="Enter Your City"
             variant="filled"
             size = "normal"
-            
-
           />
         </div>
         </Box>
         <br></br>
         <Button variant="contained" onClick={() => { setCity(getCity); setState(getState); setState2(true); console.log(city)}} >Submit
         </Button>
+        
         {state2 ? displayAnswer() : displayNothing()}
       </div>
 
