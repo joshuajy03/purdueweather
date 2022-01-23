@@ -29,7 +29,7 @@ function Home() {
 
   const displayAnswer = () => {
     return (
-      <Answers parentToChild={state} />
+      <Answers parentToChild={state} degree={degree} />
     )
   }
 

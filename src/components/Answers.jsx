@@ -6,11 +6,12 @@ import countries from 'i18n-iso-countries';
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
 
-function Answers({parentToChild}) {
+function Answers({parentToChild, degree}) {
   const [apiData, setApiData] = useState({});
   const [getState, setGetState] = useState('west lafayette');
   const [state, setState] = useState('west lafayette');
   const preferred = parentToChild;
+  const celcius = degree;
 
   // API KEY AND URL
   const apiKey = "2ae90fde95960e4e1763930f619255f2";
@@ -21,7 +22,7 @@ function Answers({parentToChild}) {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => setApiData(data));
-      console.log(preferred)
+      console.log(celcius)
   }, [apiUrl]);
 
   const kelvinToCelsius = (k) => {
