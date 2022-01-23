@@ -8,7 +8,7 @@ countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
 function Answers({parentToChild, degree, city}) {
   const [apiData, setApiData] = useState({});
-  const [state, setState] = useState(city);
+  const state = city;
   const preferred = parentToChild;
   const celcius = degree;
 
@@ -22,6 +22,7 @@ function Answers({parentToChild, degree, city}) {
       .then((res) => res.json())
       .then((data) => setApiData(data));
       console.log(celcius)
+      console.log(state)
   }, [apiUrl]);
 
   const kelvinToCelsius = (k) => {

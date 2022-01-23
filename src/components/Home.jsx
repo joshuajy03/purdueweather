@@ -12,6 +12,7 @@ import TextField from '@mui/material/TextField';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
@@ -21,7 +22,7 @@ function Home() {
   const [state, setState] = useState(0);
 
   const [getCity, setGetCity] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("west lafayette");
 
   const [state2, setState2] = useState(false);
   const [degree, setDegree] = useState(true);
@@ -37,7 +38,7 @@ function Home() {
 
   const displayAnswer = () => {
     return (
-      <Answers parentToChild={state} degree={degree} city = {city} />
+      <Answers parentToChild={state} degree={degree} city={city} />
     )
   }
 
@@ -74,11 +75,21 @@ function Home() {
         
 
         <div class="input temperature">
-        <Stack direction="row" justifyContent='center' spacing={1} alignItems="center">
-          <Typography>&deg;F</Typography>
-          <Switch defaultChecked onClick={() => setDegree(!degree)} />
-          <Typography>&deg;C</Typography>
-        </Stack>
+          <Stack direction="row" justifyContent='center' spacing={1} alignItems="center">
+            <Typography>&deg;F</Typography>
+            <Switch defaultChecked onClick={() => setDegree(!degree)} />
+            <Typography>&deg;C</Typography>
+          </Stack>
+        </div>
+        <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div className = "textfield">
           <TextField
             id="userInput"
             onChange={inputHandler}
@@ -87,19 +98,24 @@ function Home() {
             variant="filled"
             size = "normal"
           />
-          <br/>
+        </div>
+        
+        <div className = "textfield">
           <TextField
+            multiline={true}
+            rows={1}  
             id="userInput"
             onChange={cityInputHandler}
             label="Enter Your City"
-            type="text"
             variant="filled"
             size = "normal"
+            
+
           />
         </div>
-
+        </Box>
         <br></br>
-        <Button variant="contained" onClick={() => { setState(getState); setState2(true); setCity(getCity)}} >Submit
+        <Button variant="contained" onClick={() => { setCity(getCity); setState(getState); setState2(true); console.log(city)}} >Submit
         </Button>
         {state2 ? displayAnswer() : displayNothing()}
       </div>
