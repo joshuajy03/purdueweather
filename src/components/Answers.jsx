@@ -37,7 +37,9 @@ function Answers({parentToChild, degree}) {
 
   const calculateLayers = (actualTemp) => {
     var layers = 0;
+    var preferredTemp = degree ? preferred : preferred * (9/5) + 32; // converts preferred to required unit 
     console.log(actualTemp);
+
     if (actualTemp > 21)
     {
       layers = 0;
@@ -62,8 +64,12 @@ function Answers({parentToChild, degree}) {
       layers = 5;
     }
     console.log(layers)
-    var temperatureDifference = preferred-actualTemp;
-    console.log(temperatureDifference);
+
+    actualTemp = degree ? actualTemp : (actualTemp - 32) * (5 / 9); // converts actual temp to fahrenheit if not celsius
+    var temperatureDifference = actualTemp - preferredTemp; 
+    temperatureDifference = degree ? temperatureDifference : temperatureDifference / 2; // converts tempdiff to F
+
+    console.log("temp diff" + temperatureDifference);
 
     if (temperatureDifference >= -5 && temperatureDifference <=5) {
 
