@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/purdueweather/static/css/main.d7fe9614.css",
-    "main.js": "/purdueweather/static/js/main.be6aea30.js",
+    "main.css": "/purdueweather/static/css/main.9aa2c371.css",
+    "main.js": "/purdueweather/static/js/main.e3375d71.js",
     "static/js/787.179c2a3e.chunk.js": "/purdueweather/static/js/787.179c2a3e.chunk.js",
+    "static/media/bg.jpg": "/purdueweather/static/media/bg.d0f6799395a34a930dc1.jpg",
+    "static/media/sky.jpeg": "/purdueweather/static/media/sky.80fdf5b8bf04525117dc.jpeg",
     "index.html": "/purdueweather/index.html",
-    "main.d7fe9614.css.map": "/purdueweather/static/css/main.d7fe9614.css.map",
-    "main.be6aea30.js.map": "/purdueweather/static/js/main.be6aea30.js.map",
+    "main.9aa2c371.css.map": "/purdueweather/static/css/main.9aa2c371.css.map",
+    "main.e3375d71.js.map": "/purdueweather/static/js/main.e3375d71.js.map",
     "787.179c2a3e.chunk.js.map": "/purdueweather/static/js/787.179c2a3e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7fe9614.css",
-    "static/js/main.be6aea30.js"
+    "static/css/main.9aa2c371.css",
+    "static/js/main.e3375d71.js"
   ]
 }
