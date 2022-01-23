@@ -20,6 +20,7 @@ function Home() {
   const [getState, setGetState] = useState('');
   const [state, setState] = useState(0);
   const [state2, setState2] = useState(false);
+  const [degree, setDegree] = useState(true);
 
   const inputHandler = (event) => {
     setGetState(event.target.value);
@@ -67,7 +68,7 @@ function Home() {
         <div class="input temperature">
         <Stack direction="row" justifyContent='center' spacing={1} alignItems="center">
           <Typography>&deg;F</Typography>
-          <Switch defaultChecked />
+          <Switch defaultChecked onClick={() => setDegree(!degree)} />
           <Typography>&deg;C</Typography>
         </Stack>
           <TextField
