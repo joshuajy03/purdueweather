@@ -6,10 +6,9 @@ import countries from 'i18n-iso-countries';
 countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
 
 
-function Answers({parentToChild, degree}) {
+function Answers({parentToChild, degree, city}) {
   const [apiData, setApiData] = useState({});
-  const [getState, setGetState] = useState('west lafayette');
-  const [state, setState] = useState('west lafayette');
+  const [state, setState] = useState(city);
   const preferred = parentToChild;
   const celcius = degree;
 
@@ -66,7 +65,7 @@ function Answers({parentToChild, degree}) {
     console.log(layers)
 
     actualTemp = degree ? actualTemp : (actualTemp - 32) * (5 / 9); // converts actual temp to fahrenheit if not celsius
-    var temperatureDifference = actualTemp - preferredTemp; 
+    var temperatureDifference = preferredTemp - actualTemp; 
     temperatureDifference = degree ? temperatureDifference : temperatureDifference / 2; // converts tempdiff to F
 
     console.log("temp diff" + temperatureDifference);

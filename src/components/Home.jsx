@@ -19,6 +19,10 @@ function Home() {
   // State
   const [getState, setGetState] = useState('');
   const [state, setState] = useState(0);
+
+  const [getCity, setGetCity] = useState("");
+  const [city, setCity] = useState("");
+
   const [state2, setState2] = useState(false);
   const [degree, setDegree] = useState(true);
 
@@ -26,10 +30,14 @@ function Home() {
     setGetState(event.target.value);
   };
 
+  const cityInputHandler = (event) => {
+    setGetCity(event.target.value);
+  };
+
 
   const displayAnswer = () => {
     return (
-      <Answers parentToChild={state} degree={degree} />
+      <Answers parentToChild={state} degree={degree} city = {city} />
     )
   }
 
@@ -77,12 +85,21 @@ function Home() {
             label="Enter Preferred Temperature"
             type="number"
             variant="filled"
-
+            size = "normal"
+          />
+          <br/>
+          <TextField
+            id="userInput"
+            onChange={cityInputHandler}
+            label="Enter Your City"
+            type="text"
+            variant="filled"
+            size = "normal"
           />
         </div>
 
         <br></br>
-        <Button variant="contained" onClick={() => { setState(getState); setState2(true); }} >Submit
+        <Button variant="contained" onClick={() => { setState(getState); setState2(true); setCity(getCity)}} >Submit
         </Button>
         {state2 ? displayAnswer() : displayNothing()}
       </div>
