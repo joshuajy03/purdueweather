@@ -36,33 +36,38 @@ function Answers({parentToChild}) {
 
   const calculateLayers = (actualTemp) => {
     var layers = 0;
-    if (preferred > 21)
+    console.log(actualTemp);
+    if (actualTemp > 21)
     {
       layers = 0;
     }
-    else if(preferred>=15 && preferred<21)
+    else if(actualTemp>=15 && actualTemp<21)
     {
       layers = 1;
     }
-    else if(preferred>=9 && preferred<15)
+    else if(actualTemp>=9 && actualTemp<15)
     {
       layers = 2;
     }
-    else if(preferred>=3 && preferred<9)
+    else if(actualTemp>=3 && actualTemp<9)
     {
       layers = 3;
     }
-    else if(preferred>=-5 && preferred<3)
+    else if(actualTemp>=-5 && actualTemp<3)
     {
       layers = 4;
     }
     else {
       layers = 5;
     }
-    var temperatureDifference = actualTemp-preferred;
+    console.log(layers)
+    var temperatureDifference = preferred-actualTemp;
+    console.log(temperatureDifference);
 
+    if (temperatureDifference >= -5 && temperatureDifference <=5) {
 
-    if(temperatureDifference<=10 && temperatureDifference>5)
+    }
+    else if(temperatureDifference<=10 && temperatureDifference>5)
     {
        layers = layers + 1;
     }
@@ -85,6 +90,7 @@ function Answers({parentToChild}) {
     else {
        layers = layers -3;
     }
+    console.log(layers);
 
     const keyClothes = new Map();
     keyClothes.set(0, "T-shirts and shorts would be a good choice!");
@@ -110,7 +116,7 @@ function Answers({parentToChild}) {
           {apiData.main ? (
             
             <div class="card-body text-center">
-              <p>
+              <p style={{whiteSpace: 'pre-line'}}>
             {calculateLayers(kelvinToCelsius(apiData.main.temp))} 
            </p>
               <img

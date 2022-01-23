@@ -64,7 +64,7 @@ function Home() {
           </div>
 
           <br></br>
-        <Button variant="contained" onClick = {() => { setState(getState); setState2(true);}} >Submit
+        <Button variant="contained" onClick = {() => { setState(getState); setState2(true); }} >Submit
         </Button>
         {state2 ? displayAnswer() : displayNothing()}
         </div>
